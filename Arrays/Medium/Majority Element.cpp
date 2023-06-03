@@ -46,6 +46,14 @@ int majorityElement(vector<int>& arr) {
             }
         }
 
+        int cnt2=0;
+        for(int i=0;i<arr.size();i++){
+            if(arr[i]==element) cnt2++;
+        }
+        if(cnt2>(n/2)) return element;
+        return -1;
+
+
         return element;
 
 

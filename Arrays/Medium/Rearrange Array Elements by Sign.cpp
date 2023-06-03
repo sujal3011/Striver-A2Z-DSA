@@ -35,6 +35,29 @@ vector<int> rearrangeArray(vector<int>& arr) {
         return ans;
 }
 
+//Optimized approach
+//Time complexity--->O(n),single pass
+//Space complexity--->O(n)
+ vector<int> rearrangeArray(vector<int>& nums) {
+        int n=nums.size();
+        vector<int>ans(n,0);
+        int positiveInd=0,negativeInd=1;
+        for(int i=0;i<n;i++){
+            if(nums[i]>0){
+                ans[positiveInd]=nums[i];
+                positiveInd+=2;
+            }
+            else{
+                ans[negativeInd]=nums[i];
+                negativeInd+=2;
+            }
+        }
+        return ans;
+
+}
+
+
+
 //Optimized approach when order of elements in the output doesn't matter
 //Time complexity--->O(n)
 //Space complexity--->O(1)

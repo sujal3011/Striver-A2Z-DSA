@@ -7,17 +7,16 @@ using namespace std;
 vector<int> twoSum(vector<int>& arr, int k) {
         unordered_map<int,int>mm;
         int n=arr.size();
-        for(int i=0;i<n;i++){
-            mm[arr[i]]=i;
-        }
-
         vector<int>ans;
 
         for(int i=0;i<n;i++){
-            if(mm[k-arr[i]] && mm[k-arr[i]]!=i ){
+            if(mm[k-arr[i]]){
                 ans.push_back(i);
                 ans.push_back(mm[k-arr[i]]);
                 break;
+            }
+            else{
+                mm[arr[i]]=i;
             }
         }
 
