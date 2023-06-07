@@ -3,8 +3,27 @@
 using namespace std;
 
 //Sorting approach
-//Time complexity-->O(nlogn)
+//Time complexity-->O(nlogn) + O(n)
 //Space complexity-->O(1)
+
+int longestConsecutive(vector<int>& arr) {
+        sort(arr.begin(),arr.end());
+        int largest=0,cnt=0,lastSmallest=INT_MIN;
+
+        for(int i=0;i<arr.size();i++){
+            if(arr[i]==(lastSmallest+1)){
+                cnt++;
+                largest=max(largest,cnt);
+                lastSmallest=arr[i];
+            }
+            else if(arr[i]!=lastSmallest){
+                cnt=1;
+                lastSmallest=arr[i];
+            }
+        }
+        largest=max(largest,cnt);
+        return largest;
+}
 
 //Optimized approach
 //Time complexity--->O(N)
