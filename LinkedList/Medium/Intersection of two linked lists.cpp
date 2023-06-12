@@ -22,7 +22,30 @@ struct ListNode {
 //Better approach
 //Hashing
 //Time complexity--->O(n+m)
-//Space complexity--->O(1)
+//Space complexity--->O(n)
+ListNode* getIntersectionNode(ListNode* A, ListNode* B) {
+    // Do not write main() function.
+    // Do not read input, instead use the arguments to the function.
+    // Do not print the output, instead return values as specified
+    // Still have a doubt. Checkout www.interviewbit.com/pages/sample_codes/ for more details
+    
+    unordered_map<ListNode*,int>mm;
+    ListNode*temp=A;
+    while(temp!=NULL){
+        mm.insert({temp,1});
+        temp=temp->next;
+    }
+    temp=B;
+    while(temp!=NULL){
+        if(mm.find(temp)!=mm.end()){
+            return temp;
+        }
+        else temp=temp->next;
+    }
+    return NULL;
+    
+}
+
 
 
 
