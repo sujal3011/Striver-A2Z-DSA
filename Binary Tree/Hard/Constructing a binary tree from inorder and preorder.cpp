@@ -16,6 +16,7 @@ struct TreeNode {
 
 TreeNode * constructTree(vector < int > & preorder, int preStart, int preEnd, vector 
  < int > & inorder, int inStart, int inEnd, map < int, int > & mp) {
+
   if (preStart > preEnd || inStart > inEnd) return NULL;
 
   TreeNode * root = new TreeNode(preorder[preStart]);
@@ -41,3 +42,15 @@ TreeNode * buildTree(vector < int > & preorder, vector < int > & inorder) {
 
   return constructTree(preorder, preStart, preEnd, inorder, inStart, inEnd, mp);
 }
+
+// int intStart=newInterval[0],intEnd=newInterval[1];
+//        int newStart=-1,newEnd=-1;
+//        vector<vector<int>>ans;
+//        for(int i=0;i<n;i++){
+//            if(intStart<=intervals[i][0]){
+//                newStart=inStart;
+//            }
+//            else if(intStart>intervals[i][0] && inStart<=intervals[i][1]){
+//                newStart=
+//            }
+//        }

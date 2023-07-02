@@ -37,6 +37,7 @@ ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
             }
             else{
                 temp->next=l2;
+                //Swapping l1 and l2
                 ListNode*temp2=l1;
                 l1=l2;
                 l2=temp2;

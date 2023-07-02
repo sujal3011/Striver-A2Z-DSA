@@ -41,6 +41,33 @@ int singleNonDuplicate(vector<int>& arr) {
 
 }
 
+//Optimized approach(Binary Search)
+//Time complexity--->O(logn)
+//Space complexity--->O(1)
+int singleNonDuplicate(vector<int>& nums) {
+
+        int n = nums.size(),ans;
+        int low=0,high=n-1;
+        while(low<=high){
+            int mid=(low+high)/2;
+            if((mid-1)>=0 && nums[mid]==nums[mid-1]){
+                if(mid%2==0) high=mid-1;
+                else low=mid+1;
+            }
+
+            else if((mid+1)<n && nums[mid]==nums[mid+1]){
+               if(mid%2!=0) high=mid-1;
+                else low=mid+1;
+            }
+            else{
+                ans=nums[mid];
+                break;
+            }
+            
+        }
+        return ans;
+        
+    }
 
 
 int main(){

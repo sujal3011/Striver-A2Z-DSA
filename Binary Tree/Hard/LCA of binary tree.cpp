@@ -54,4 +54,26 @@ TreeNode* lowestCommonAncestor(TreeNode* root, TreeNode* p, TreeNode* q) {
         if(left!=NULL) return left;
         return right;
 
+}
+
+
+//IMPORTANT
+//The given nodes B and C may not exist in the tree in that case return -1
+bool helper(TreeNode*root,int B,int C,TreeNode* &ans){
+    if(!root) return false;
+    bool flag = root->val==B || root->val==C;
+    bool left=helper(root->left,B,C,ans);
+    bool right=helper(root->right,B,C,ans);
+    if(flag && B==C){
+        ans = root;
     }
+    else if((flag & left) || (flag && right) || (left && right)){
+        ans=root;
+    }
+    return flag || left || right; 
+}
+int lca(TreeNode* A, int B, int C) {
+    TreeNode*ans=NULL;
+    helper(A,B,C,ans);
+    return ans ? ans->val : -1;
+}

@@ -24,3 +24,26 @@ using namespace std;
         }
         return ans;
 }
+
+
+int maxProduct(const vector<int> &A) {
+    
+    int n=A.size();
+    int min_ending=1,max_ending=1,maxi=INT_MIN;
+    for(int i=0;i<n;i++){
+        if(A[i]>0){
+            max_ending=max_ending*A[i];
+            min_ending=min(1,min_ending*A[i]);
+        }
+        else if(A[i]<0){
+            max_ending=max(1,min_ending*A[i]);
+            min_ending=max_ending*A[i];
+        }
+        else{
+            max_ending=1;
+            min_ending=1;
+        }
+        maxi=max(maxi,max_ending);
+    }
+    return maxi;
+}
